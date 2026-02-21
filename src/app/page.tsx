@@ -1,12 +1,25 @@
-import Image from "next/image";
+import { UrlShortnerForm } from "../components/urls/url-shortner-form";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+
 
 export default function Home() {
   return (
-    <div>
-      <div>
-        <h1>Shorten your links</h1>
-        <p>Enter a long URL and get a shortened one</p>
+    <div className="flex flex-1 flex-col items-center justify-center p-6 md:p-24">
+      <div className="w-full max-w-3xl mx-auto text-center">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Shorten your links</h1>
+        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">Enter a long URL and get a shortened one</p>
+        <UrlShortnerForm />
       </div>
     </div>
+
+
   );
 }
