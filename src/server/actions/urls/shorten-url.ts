@@ -1,3 +1,5 @@
+"use server"
+
 import { ApiResponse } from '@/lib/types'
 import { ensureHttps } from '@/lib/utils'
 import { z } from 'zod'
