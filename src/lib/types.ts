@@ -5,3 +5,21 @@ export const urlSchema =z.object({
 })
 
 export type UrlFormData = z.infer<typeof urlSchema>;
+
+
+export type ApiResponse<T> = {
+    success: boolean;
+    data?: T;
+    error?: string;
+
+}
+
+
+export type Url = {
+    id: number;
+    originalUrl:string;
+    shortCode: string;
+    createdAt: string;
+    updatedAt: string;
+    clicks: number;
+}
