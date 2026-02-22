@@ -1,5 +1,20 @@
-import { pgTable, serial, varchar, timestamp,integer } from "drizzle-orm/pg-core"
+import { pgTable, serial, varchar, timestamp,integer,text, pgEnum } from "drizzle-orm/pg-core"
+import type { AdapterAccountType } from "@auth/core/adapters"
 
+
+// define user roles
+export const userRoleEnum = pgEnum("user_role", ["user", "admin"])
+
+//define user table
+export const users = pgTable("users" , {
+    id: varchar("id", { length: 255}).notNull().primaryKey(),
+    name: varchar("name", {length: 255}),
+    email: varchar("email", { length: 255}).notNull().unique(),
+    emailVerified: timestamp("emailVerified", { mode:  "date"}),
+    image: text("image"),
+    password: text("passwword"),
+    role: userRoleEnum("role").default("user").notNull(,)
+})
 export const urls = pgTable("urls", {
     id: serial("id").primaryKey(),
     originalUrl: varchar("original_url", {length: 2000}).notNull(),
