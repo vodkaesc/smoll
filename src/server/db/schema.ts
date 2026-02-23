@@ -1,5 +1,4 @@
 import { pgTable, serial, varchar, timestamp,integer,text, pgEnum } from "drizzle-orm/pg-core"
-import type { AdapterAccountType } from "@auth/core/adapters"
 
 
 // define user roles
