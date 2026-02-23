@@ -13,7 +13,9 @@ export const users = pgTable("users" , {
     emailVerified: timestamp("emailVerified", { mode:  "date"}),
     image: text("image"),
     password: text("passwword"),
-    role: userRoleEnum("role").default("user").notNull(,)
+    role: userRoleEnum("role").default("user").notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+    updatedAt: timestamp("updated_at").notNull().defaultNow(),
 })
 export const urls = pgTable("urls", {
     id: serial("id").primaryKey(),
